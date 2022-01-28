@@ -55,10 +55,19 @@ socket.on('new-user-message', ({ name, message }) => {
 });
 
 input.addEventListener('keyup', (e) => {
-    socket.emit('typing', { name });
+    if (input.value.length < 10 || (input.value > 25 && input.value < 50)) {
+        socket.emit('typing', { name });
+    } else {
+        socket.emit('not-typing', { name });
+    }
 });
 
 socket.on('typing-user', ({ name: { name: userName } }) => {
-    const typing = document.querySelector('.typing');
     typing.textContent = userName + ' is typing';
 });
+
+socket.on('user-not-typing', ({ name }) => {
+    typing.textContent = '';
+});
+
+console.log(typing);

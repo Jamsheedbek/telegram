@@ -40,12 +40,15 @@ io.on('connection', (socket) => {
     });
 
     socket.on('new-message', ({ name, message }) => {
-        console.log(message);
         socket.broadcast.emit('new-user-message', { name, message });
     });
 
     socket.on('typing', (name) => {
         socket.broadcast.emit('typing-user', { name });
+    });
+
+    socket.on('not-typing', (name) => {
+        socket.broadcast.emit('user-not-typing', { name });
     });
 
     socket.on('disconnect', () => {
