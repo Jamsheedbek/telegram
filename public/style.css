@@ -686,7 +686,7 @@ div[class~='onTop'] > .count {
     height: calc(100vh - 140px);
     background: #333;
     overflow-x: hidden;
-    overflow-y: auto;
+    overflow-y: scroll;
 }
 
 .userBg {

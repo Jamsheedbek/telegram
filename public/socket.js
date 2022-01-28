@@ -2,6 +2,7 @@ const socket = io();
 const messages = document.getElementById('messages');
 const azolar = document.getElementById('members');
 const input = document.getElementById('input');
+const typing = document.querySelector('.typing');
 
 const name = document.cookie
     .split('; ')
@@ -38,6 +39,7 @@ form.addEventListener('submit', (e) => {
 });
 
 socket.on('new-user-message', ({ name, message }) => {
+    typing.textContent = '';
     const DIV = document.createElement('div');
     DIV.textContent = message;
     DIV.classList.add('messageReceived');
@@ -49,7 +51,7 @@ input.addEventListener('keyup', (e) => {
     socket.emit('typing', { name });
 });
 
-socket.on('typing-user', ({ name }) => {
+socket.on('typing-user', ({ name: { name: userName } }) => {
     const typing = document.querySelector('.typing');
-    typing.textContent = name + ' is typing';
+    typing.textContent = userName + ' is typing';
 });
