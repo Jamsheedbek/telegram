@@ -34,9 +34,9 @@ io.on('connection', (socket) => {
     socket.on('new-user', (name) => {
         const users = JSON.parse(allUsers.read());
         const members = users.length;
-        socket.broadcast.emit('joined-user', { name, members });
         users.push(name);
         allUsers.write(users);
+        socket.broadcast.emit('joined-user', { name, members });
     });
 
     socket.on('new-message', ({ name, message }) => {
