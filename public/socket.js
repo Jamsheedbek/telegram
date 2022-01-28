@@ -50,9 +50,6 @@ input.addEventListener('keyup', (e) => {
 });
 
 socket.on('typing-user', ({ name }) => {
-    const DIV = document.createElement('div');
-    DIV.textContent = 'typing ...';
-    DIV.classList.add('messageReceived');
-    DIV.classList.add('msg');
-    messages.appendChild(DIV);
+    const typing = document.querySelector('.typing');
+    typing.textContent = name + ' is typing';
 });

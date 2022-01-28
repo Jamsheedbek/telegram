@@ -93,6 +93,7 @@ LICENSE: https://creativecommons.org/licenses/by/3.0/
                             <%= users %> members
                         </p>
                     </div>
+                    <p class="typing"></p>
                 </div>
 
                 <div id="messages" class="convHistory userBg"></div>
@@ -277,15 +278,17 @@ LICENSE: https://creativecommons.org/licenses/by/3.0/
                     <ul>
                         <li>
                             Phone Number:
-                            <span class="blue phone">+1 12 1234 5678</span>
+                            <span class="blue phone"><%= user.phone %></span>
                         </li>
                         <li>
                             Username:
-                            <span class="blue username">@USERNAME</span>
+                            <span class="blue username"
+                                >Choose your username</span
+                            >
                         </li>
                         <li>
                             Profile:
-                            <span class="blue">https://t.me/USERNAME</span>
+                            <span class="blue">https://t.me/JamshidbekJS</span>
                         </li>
                     </ul>
                 </div>

@@ -728,6 +728,13 @@ div[class~='onTop'] > .count {
     background-color: rgba(0, 0, 0, 0.2);
 }
 
+.typing {
+    position: absolute;
+    top: 50%;
+    left: 45%;
+    color: dodgerblue;
+}
+
 /* THE REPLY BAR CSS */
 
 .replyBar {
