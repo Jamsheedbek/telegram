@@ -33,8 +33,8 @@ const io = socketIO(server);
 io.on('connection', (socket) => {
     socket.on('new-user', (name) => {
         const users = JSON.parse(allUsers.read());
-        const members = users.length;
         users.push(name);
+        const members = users.length;
         allUsers.write(users);
         socket.broadcast.emit('joined-user', { name, members });
     });
