@@ -47,6 +47,11 @@ socket.on('new-user-message', ({ name, message }) => {
     DIV.classList.add('messageReceived');
     DIV.classList.add('msg');
     messages.appendChild(DIV);
+
+    const SPAN = document.createElement('span');
+    SPAN.textContent = name;
+    SPAN.classList.add('timestamp');
+    DIV.appendChild(SPAN);
 });
 
 input.addEventListener('keyup', (e) => {
