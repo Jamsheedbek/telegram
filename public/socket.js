@@ -29,13 +29,15 @@ const form = document.getElementById('form');
 form.addEventListener('submit', (e) => {
     e.preventDefault();
 
-    const DIV = document.createElement('div');
-    DIV.textContent = input.value;
-    DIV.classList.add('messageSent');
-    DIV.classList.add('msg');
-    messages.appendChild(DIV);
-    socket.emit('new-message', { name, message: input.value });
-    input.value = '';
+    if (input.value) {
+        const DIV = document.createElement('div');
+        DIV.textContent = input.value;
+        DIV.classList.add('messageSent');
+        DIV.classList.add('msg');
+        messages.appendChild(DIV);
+        socket.emit('new-message', { name, message: input.value });
+        input.value = '';
+    }
 });
 
 socket.on('new-user-message', ({ name, message }) => {
