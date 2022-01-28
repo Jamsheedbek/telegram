@@ -41,6 +41,7 @@ io.on('connection', (socket) => {
 
     socket.on('new-message', ({ name, message }) => {
         socket.broadcast.emit('new-user-message', { name, message });
+        socket.broadcast.emit('user-not-typing', { name });
     });
 
     socket.on('typing', (name) => {
